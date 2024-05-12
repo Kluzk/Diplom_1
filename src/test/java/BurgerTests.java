@@ -35,9 +35,8 @@ public class BurgerTests {
             expectedPrice += ingredient.getPrice();
         }
         expectedPrice += (bun.getPrice() * 2);
-        float actualPrice = burger.getPrice();
 
-        assertEquals(expectedPrice, actualPrice, 0);
+        assertEquals(expectedPrice, burger.getPrice(), 0);
     }
 
     @Description("Проверка метода getReceipt")
@@ -50,17 +49,16 @@ public class BurgerTests {
                 "(==== black bun ====)%n" +
                 "%n" +
                 "Price: 700.000000%n");
-        String actualReceipt = burger.getReceipt();
 
-        assertEquals(expectedReceipt, actualReceipt);
+        assertEquals(expectedReceipt,  burger.getReceipt());
     }
 
     @Description("Проверка метода removeIngredient")
     @Test
     public void checkRemoveIngredient() {
         burger.removeIngredient(1);
-        int newBurgerSize = burger.ingredients.size();
-        assertEquals(1, newBurgerSize);
+
+        assertEquals(1, burger.ingredients.size());
         assertEquals(sauce, burger.ingredients.get(0));
     }
 
@@ -68,6 +66,7 @@ public class BurgerTests {
     @Test
     public void checkMoveIngredient() {
         burger.moveIngredient(0, 1);
+
         assertEquals(filling, burger.ingredients.get(0));
         assertEquals(sauce, burger.ingredients.get(1));
     }
